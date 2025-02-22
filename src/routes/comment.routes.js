@@ -2,6 +2,7 @@ import express from 'express';
 import { body } from 'express-validator';
 import { createComment, getCommentsByPost, updateComment, deleteComment } from '../controllers/comment.controller.js';
 import { authMiddleware } from '../middlewares/auth.middleware.js';
+import { validateComment } from "../utils/validators.js";
 
 const router = express.Router();
 
@@ -15,4 +16,3 @@ router.put('/:id', authMiddleware, updateComment);
 router.delete('/:id', authMiddleware, deleteComment);
 
 export default router;
-
